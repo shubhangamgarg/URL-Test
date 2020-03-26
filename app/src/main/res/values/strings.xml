@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">URL Test</string>
+    <string-array name="search_by">
+        <item>Default</item>
+        <item>Author</item>
+        <item>ISBN</item>
+        <item>Publisher</item>
+        <item>Series</item>
+        <item>Title</item>
+    </string-array>
+</resources>
