@@ -21,6 +21,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.jsoup.nodes.Document;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Spinner search_by;
     public static ListView searchList;
     public static ArrayList<Links>links;
+    TextView publisher;
+    TextView title;
     com.example.urltest.Connection connection;
     Search s;
 
@@ -43,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        EventBus.getDefault().register(this);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
@@ -52,6 +57,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         btn_search= findViewById(R.id.fetch);
         search_by = findViewById(R.id.search_by);
         searchList = findViewById(R.id.searchList);
+        publisher= findViewById(R.id.publisher);
+        title=findViewById(R.id.title);
+
         links = new ArrayList<>();
         final ArrayAdapter<CharSequence> search_list = ArrayAdapter.createFromResource(this,R.array.search_by,android.R.layout.simple_spinner_item);
         search_list.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -129,6 +137,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         column="Default";
     }
 
+    @Subscribe(sticky = true,threadMode = ThreadMode.MAIN)
+    public void showTitle(showTitleEvent event)
+    {
+        if (event.isSuccess())
+        {
+            title.setVisibility(View.VISIBLE);
+            publisher.setVisibility(View.VISIBLE);
+        }
+//        else
+//        {
+//
+//        }
+    }
 }
 
 
