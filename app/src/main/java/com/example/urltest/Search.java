@@ -6,6 +6,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.util.Log;
+
+import com.example.urltest.EventBus.showTitleEvent;
+
+import org.greenrobot.eventbus.EventBus;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -23,6 +27,7 @@ public class Search extends AsyncTask<Void,Void,Document> {
     ProgressDialog dialog;
     ArrayList<Links>link;
     boolean connected = false;
+
     public Search(Context context, String key, String column)
     {
         this.context = context;
@@ -92,6 +97,7 @@ public class Search extends AsyncTask<Void,Void,Document> {
             return null;
         }
     }
+
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -149,6 +155,7 @@ public class Search extends AsyncTask<Void,Void,Document> {
                     throwable.printStackTrace();
                 }
             }
+            EventBus.getDefault().postSticky(new showTitleEvent(true));
         }
         else
         {

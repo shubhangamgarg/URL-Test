@@ -22,7 +22,8 @@ public class PrepareSearchResult {
         Elements rows = table.select("tr");
         Element tr;
         Elements td;
-        for(int i =0;i<rows.size();i++)
+
+        for(int i =1;i<rows.size();i++)
         {
 //            tds[i] = rows.get(i);
             tr =  rows.get(i);
@@ -40,6 +41,8 @@ public class PrepareSearchResult {
             s =  new SearchResult();
 //            Log.v("BOOK","Book "+td.get(2).text());
         }
+
+
 
     }
     public void finalize() throws Throwable {

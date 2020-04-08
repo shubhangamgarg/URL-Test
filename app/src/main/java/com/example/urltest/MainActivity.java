@@ -19,12 +19,13 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.urltest.EventBus.showTitleEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.jsoup.nodes.Document;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         EventBus.getDefault().register(this);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+
 
         final Context context = MainActivity.this;
         keyword = findViewById(R.id.key);
@@ -145,11 +147,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             title.setVisibility(View.VISIBLE);
             publisher.setVisibility(View.VISIBLE);
         }
-//        else
-//        {
 //
-//        }
     }
+
+    @Override
+    protected void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+
+
 }
 
 
