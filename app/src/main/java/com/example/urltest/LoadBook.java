@@ -44,9 +44,10 @@ public class LoadBook extends AsyncTask<Void,Void,Document> {
         super.onPreExecute();
         dialog.show();
         InetAddress ip = null;
+        byte[] add = {93, (byte) 174,95,29};
 
         try {
-            ip = InetAddress.getByName("www.libtips.org");
+            ip = InetAddress.getByAddress(add);
             if(ip!=null)
             {
                 connected = true;

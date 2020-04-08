@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.io.File;
 
 public class LoadBookDetail extends AppCompatActivity {
     public static ImageView cover;
@@ -33,6 +37,9 @@ public class LoadBookDetail extends AppCompatActivity {
         publisher = findViewById(R.id.publisher);
         isbn = findViewById(R.id.isbn);
         LoadBook l = new LoadBook(this,link);
+        File directory = new File(Environment.getExternalStorageDirectory()+ File.separator+"images");
+        directory.mkdirs();
+        Log.v("FILE",Environment.getExternalStorageDirectory()+ File.separator+"images");
         l.execute();
     }
 }
