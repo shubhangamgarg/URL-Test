@@ -31,11 +31,14 @@
             android:layout_width="0dp"
             android:id="@+id/search_text"
             android:layout_height="wrap_content"
-            android:layout_weight="3">
+            android:layout_weight="3"
+            app:hintTextColor="@android:color/primary_text_dark_nodisable">
     <EditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/key"
+        android:textColor="@android:color/white"
+        android:textSize="23sp"
         android:hint="Enter search keyword"
         />
         </com.google.android.material.textfield.TextInputLayout>
