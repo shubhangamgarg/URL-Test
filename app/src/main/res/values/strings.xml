@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">URL Test</string>
+    <string name="edt_static_title">Title</string>
+    <string name="edt_static_publisher">Publisher</string>
     <string-array name="search_by">
         <item>Search By</item>
         <item>Author</item>

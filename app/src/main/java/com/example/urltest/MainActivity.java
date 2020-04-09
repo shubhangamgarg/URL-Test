@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     TextView title;
     com.example.urltest.Connection connection;
     Search s;
-
+    DataBaseHelper db ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         searchList = findViewById(R.id.searchList);
         publisher= findViewById(R.id.publisher);
         title=findViewById(R.id.title);
+        db = new DataBaseHelper(this,null,null,1);
 
         links = new ArrayList<>();
         final ArrayAdapter<CharSequence> search_list = ArrayAdapter.createFromResource(this,R.array.search_by,android.R.layout.simple_spinner_item);
