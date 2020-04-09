@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">URL Test</string>
     <string-array name="search_by">
-        <item>Default</item>
+        <item>Search By</item>
         <item>Author</item>
         <item>ISBN</item>
         <item>Publisher</item>
