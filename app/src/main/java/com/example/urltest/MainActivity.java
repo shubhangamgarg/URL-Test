@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.text.InputType;
@@ -16,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -40,9 +42,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public static ArrayList<Links>links;
     TextView publisher;
     TextView title;
+    LinearLayout parent_title_of_title;
     com.example.urltest.Connection connection;
     Search s;
-    DataBaseHelper db ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +64,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         searchList = findViewById(R.id.searchList);
         publisher= findViewById(R.id.publisher);
         title=findViewById(R.id.title);
-        db = new DataBaseHelper(this,null,null,1);
+        parent_title_of_title=findViewById(R.id.parent_layout_of_title);
 
         links = new ArrayList<>();
-        final ArrayAdapter<CharSequence> search_list = ArrayAdapter.createFromResource(this,R.array.search_by,android.R.layout.simple_spinner_item);
-        search_list.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    //    final ArrayAdapter<CharSequence> search_list = ArrayAdapter.createFromResource(this,R.array.search_by,android.R.layout.simple_spinner_item);
+  //  U   S   E   D         F  O   R        S   P   I   N   N  E    R       C  U  S  T  O  M  I  Z  A  T  I  O  N
+       final ArrayAdapter<CharSequence> search_list =  ArrayAdapter.createFromResource(this,R.array.search_by,R.layout.spinner_item);
+
+       search_list.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         search_by.setAdapter(search_list);
+
         search_by.setOnItemSelectedListener(this);
         connection = new com.example.urltest.Connection(this);
         try {
@@ -98,7 +105,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                             return;
                         }
                     }
-                    searchList.setAdapter(null);
+
+    searchList.setAdapter(null);
                     InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
                     assert imm != null;
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
@@ -145,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     {
         if (event.isSuccess())
         {
+            parent_title_of_title.setVisibility(View.VISIBLE);
             title.setVisibility(View.VISIBLE);
             publisher.setVisibility(View.VISIBLE);
         }
