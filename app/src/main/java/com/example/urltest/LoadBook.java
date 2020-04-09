@@ -115,6 +115,7 @@ public class LoadBook extends AsyncTask<Void,Void,Document> {
                     LoadBookDetail.author.setText(author);
                     LoadBookDetail.title.setText(h1.text().trim());
                     LoadBookDetail.isbn.setText(isbn);
+
                     LoadBookDetail.layout.setVisibility(View.VISIBLE);
                 }
                 else {

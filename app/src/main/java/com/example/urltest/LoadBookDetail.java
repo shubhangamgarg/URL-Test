@@ -1,6 +1,7 @@
 package com.example.urltest;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +21,7 @@ public class LoadBookDetail extends AppCompatActivity {
     public static TextView author;
     public static TextView publisher;
     public static TextView isbn;
-    public static LinearLayout layout;
+    public static CoordinatorLayout layout;
     public static String downloadLink;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,9 @@ public class LoadBookDetail extends AppCompatActivity {
         File directory = new File(Environment.getExternalStorageDirectory()+ File.separator+"images");
         directory.mkdirs();
         Log.v("FILE",Environment.getExternalStorageDirectory()+ File.separator+"images");
+this.setTitle("Book Detail");
+
+
         l.execute();
     }
 }

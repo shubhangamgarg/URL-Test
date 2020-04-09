@@ -38,6 +38,8 @@ public class SearchResultAdapter extends ArrayAdapter<SearchResult> {
         TextView publisher;
         title = view.findViewById(R.id.title);
         publisher = view.findViewById(R.id.publisher);
+
+
         SearchResult s = new SearchResult();
                s =  list.get(position);
                if(s==null)
