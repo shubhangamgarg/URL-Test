@@ -1,30 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoadBookDetail"
-    android:orientation="vertical"
     android:id="@+id/book_view">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/app_bar_layout"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dialog"
+        android:background="@android:color/white">
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/collapsing"
+        android:fitsSystemWindows="true"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed"
+        app:contentScrim="#0e0d0e"
+        app:expandedTitleTextAppearance="@android:color/transparent">
 
-    <TextView
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="10dp">
+
+   <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/title"
         android:textAlignment="center"
-        android:layout_gravity="center"
-        android:layout_margin="7dp"
+        android:textIsSelectable="false"
+        android:textColor="#000000"
+       android:textAllCaps="true"
+      android:lineSpacingMultiplier="1.5"
+
+        android:layout_gravity="top|center_horizontal"
         android:fontFamily="sans-serif"
         android:textStyle="bold"
         android:hint="Title"
         android:textSize="18dp"/>
     <ImageView
         android:layout_height="300dp"
-        android:layout_margin="10dp"
-        android:layout_width="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="250dp"
+        app:layout_collapseMode="parallax"
+        android:scaleType="fitXY"
+        android:layout_marginBottom="20dp"
+        android:adjustViewBounds="true"
         android:id="@+id/cover"
         android:layout_gravity="center_horizontal"/>
+</LinearLayout>
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.cardview.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_anchor="@id/app_bar_layout"
+    app:layout_anchorGravity="bottom|left|start"
+    app:cardUseCompatPadding="true"
+    android:backgroundTint="@android:color/white"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="10dp">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/topic"
+    android:maxLines="1"
+ android:background="#DDDCDC"
+    android:elevation="6dp"
+    android:fontFamily="@font/brandon_text_medium"
+    android:textAlignment="center"
+    android:padding="5dp"
+    android:textColor="@android:color/black"
+    android:textSize="18sp"
+    android:text="Its's id=@+id/topic"
+    />
+</androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/app_bar_layout"
+        app:layout_anchorGravity="bottom|right|end"
+        app:cardUseCompatPadding="true"
+        android:backgroundTint="@android:color/white"
+        app:cardElevation="5dp"
+
+        app:cardCornerRadius="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/language"
+            android:maxLines="1"
+           android:elevation="6dp"
+            android:padding="5dp"
+            android:background="#DDDCDC"
+
+            android:fontFamily="@font/brandon_text_medium"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:text="Its's id=@+id/language"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:id="@+id/nestedScrollView"
+        android:layout_marginTop="15dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+<!--<androidx.cardview.widget.CardView-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--   app:cardUseCompatPadding="true"-->
+<!--    app:cardElevation="10dp"-->
+<!--    android:backgroundTint="@android:color/darker_gray"-->
+<!--    app:cardCornerRadius="10dp">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,9 +154,11 @@
                 android:layout_width="match_parent"
                 android:textAlignment="center"
                 android:textStyle="bold"
+                android:textIsSelectable="false"
+                android:textColor="#000000"
                 android:layout_gravity="center"
                 android:text="Author(s)"
-                android:textSize="12dp"/>
+                android:textSize="14sp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -67,9 +176,11 @@
                 android:layout_margin="2dp"
                 android:layout_gravity="center"
                 android:textStyle="bold"
+                android:textIsSelectable="false"
+                android:textColor="#000000"
                 android:text="Year"
                 android:textAlignment="center"
-                android:textSize="12dp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -94,6 +205,8 @@
                         android:layout_width="match_parent"
                         android:id="@+id/author"
                         android:textAlignment="center"
+                        android:fontFamily="@font/brandon_text_medium"
+                        android:textIsSelectable="false"
                         android:layout_gravity="center"
                         android:hint="Author"
                         android:textSize="16dp"/>
@@ -112,6 +225,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
+                        android:fontFamily="@font/brandon_text_medium"
+                        android:textIsSelectable="false"
                         android:layout_gravity="center"
                         android:hint="--NA--"
                         android:textAlignment="center"
@@ -134,14 +249,16 @@
                     android:padding="2dp"
                     android:layout_margin="2dp">
 
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="match_parent"
-                            android:textAlignment="center"
-                            android:textStyle="bold"
-                            android:layout_gravity="center"
-                            android:text="Publisher"
-                            android:textSize="12dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Publisher"
+                        android:textIsSelectable="false"
+                        android:textColor="#000000"
+                        android:textAlignment="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -159,9 +276,11 @@
                                 android:layout_margin="2dp"
                                 android:layout_gravity="center"
                                 android:textStyle="bold"
+                                android:textIsSelectable="false"
+                                android:textColor="#000000"
                                 android:text="ISBN"
                                 android:textAlignment="center"
-                                android:textSize="12dp" />
+                                android:textSize="14sp" />
                 </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -186,6 +305,8 @@
                 android:id="@+id/publisher"
                 android:textAlignment="center"
                 android:layout_gravity="center"
+                android:fontFamily="@font/brandon_text_medium"
+                android:textIsSelectable="false"
                 android:hint="Author"
                 android:textSize="16dp"/>
         </LinearLayout>
@@ -202,6 +323,8 @@
                 android:id="@+id/isbn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/brandon_text_medium"
+                android:textIsSelectable="false"
                 android:layout_margin="2dp"
                 android:layout_gravity="center"
                 android:hint="--NA--"
@@ -210,14 +333,42 @@
         </LinearLayout>
 
     </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="5dp"
+                app:cardUseCompatPadding="true"
+                android:padding="8dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:padding="12dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/description"
+               android:layout_marginTop="12dp"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:lineSpacingMultiplier="1.5"
+                android:text="id= @+id/description"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
     <Button
         android:id="@+id/button1"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
        android:layout_gravity="center_horizontal"
-        android:layout_margin="5dp"
+        android:layout_marginTop="10dp"
         android:text="Download"
+
+        android:background="@drawable/button"
         android:drawableEnd="@drawable/download_icon" />
 
-
-</LinearLayout>
+    </LinearLayout>
+<!--</androidx.cardview.widget.CardView>-->
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
