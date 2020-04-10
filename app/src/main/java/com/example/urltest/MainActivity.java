@@ -1,6 +1,8 @@
 package com.example.urltest;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.app.Activity;
@@ -37,14 +39,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     EditText keyword;
     Button btn_search;
     String column;
-    Spinner search_by;
-    public static ListView searchList;
+    Spinner search_by_spinner;
+    public static RecyclerView searchList;
     public static ArrayList<Links>links;
     TextView publisher;
     TextView title;
     LinearLayout parent_title_of_title;
     com.example.urltest.Connection connection;
     Search s;
+
 
 
     @Override
@@ -60,11 +63,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         final Context context = MainActivity.this;
         keyword = findViewById(R.id.key);
         btn_search= findViewById(R.id.fetch);
-        search_by = findViewById(R.id.search_by);
-        searchList = findViewById(R.id.searchList);
+        search_by_spinner= findViewById(R.id.search_by);
+        searchList = findViewById(R.id.recycler_view_list);
         publisher= findViewById(R.id.publisher);
         title=findViewById(R.id.title);
         parent_title_of_title=findViewById(R.id.parent_layout_of_title);
+        searchList.setLayoutManager(new LinearLayoutManager(this));
 
         links = new ArrayList<>();
     //    final ArrayAdapter<CharSequence> search_list = ArrayAdapter.createFromResource(this,R.array.search_by,android.R.layout.simple_spinner_item);
@@ -72,9 +76,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
        final ArrayAdapter<CharSequence> search_list =  ArrayAdapter.createFromResource(this,R.array.search_by,R.layout.spinner_item);
 
        search_list.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        search_by.setAdapter(search_list);
+        search_by_spinner.setAdapter(search_list);
 
-        search_by.setOnItemSelectedListener(this);
+        search_by_spinner.setOnItemSelectedListener(this);
         connection = new com.example.urltest.Connection(this);
         try {
             connection.connectivity();
@@ -121,16 +125,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
         searchList.setClickable(true);
-        searchList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getApplicationContext(),"Clicked "+position+" value",Toast.LENGTH_LONG).show();
-                Intent i =new Intent(getApplicationContext(),LoadBookDetail.class);
-                i.putExtra("link",links.get(position).getLink());
-                startActivity(i);
-
-            }
-        });
+//        searchList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+////                Toast.makeText(getApplicationContext(),"Clicked "+position+" value",Toast.LENGTH_LONG).show();
+//                Intent i =new Intent(getApplicationContext(),LoadBookDetail.class);
+//                i.putExtra("link",links.get(position).getLink());
+//                startActivity(i);
+//
+//            }
+//        });
     }
 
     @Override

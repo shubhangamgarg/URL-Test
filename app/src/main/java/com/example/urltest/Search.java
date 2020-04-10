@@ -145,7 +145,7 @@ public class Search extends AsyncTask<Void,Void,Document> {
                 PrepareSearchResult prepareSearchResult = new PrepareSearchResult(tables);
                 prepareSearchResult.loadBooks();
 
-                SearchResultAdapter adapter = new SearchResultAdapter(context,R.id.searchList,prepareSearchResult.list);
+                SearchResultAdapter adapter = new SearchResultAdapter(context,prepareSearchResult.list);
                 MainActivity.searchList.setAdapter(adapter);
                 MainActivity.links = prepareSearchResult.links;
                 dialog.dismiss();
