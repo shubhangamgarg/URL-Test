@@ -46,9 +46,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical|center"
         app:cardUseCompatPadding="true"
-        app:cardElevation="15dp"
+        android:layout_marginStart="5dp"
+        app:cardElevation="17dp"
         android:layout_marginBottom="25dp"
-        android:backgroundTint="@android:color/darker_gray">
+        android:backgroundTint="#BBB7B7">
 
     <ImageView
         android:layout_height="300dp"
@@ -222,11 +223,16 @@
                 android:layout_width="match_parent"
                 android:textAlignment="center"
                 android:textStyle="bold"
+                android:textSize="18sp"
+                android:textAllCaps="true"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeStepGranularity="2sp"
                 android:textIsSelectable="false"
                 android:textColor="#000000"
                 android:layout_gravity="center"
-                android:text="Author(s)"
-                android:textSize="14sp"/>
+                android:text="Author(s)" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -243,12 +249,17 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:layout_gravity="center"
+                android:textSize="18sp"
                 android:textStyle="bold"
+                android:textAllCaps="true"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeStepGranularity="2sp"
                 android:textIsSelectable="false"
                 android:textColor="#000000"
                 android:text="Year"
-                android:textAlignment="center"
-                android:textSize="14sp" />
+                android:textAlignment="center" />
         </LinearLayout>
 
     </LinearLayout>
@@ -324,9 +335,14 @@
                         android:layout_gravity="center"
                         android:text="Publisher"
                         android:textIsSelectable="false"
+                        android:textAllCaps="true"
+                        android:textSize="18sp"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMinTextSize="12sp"
+                        android:autoSizeMaxTextSize="100sp"
+                        android:autoSizeStepGranularity="2sp"
                         android:textColor="#000000"
                         android:textAlignment="center"
-                        android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
                 <LinearLayout
@@ -346,10 +362,15 @@
                                 android:layout_gravity="center"
                                 android:textStyle="bold"
                                 android:textIsSelectable="false"
+                                android:textAllCaps="true"
+                                android:autoSizeTextType="uniform"
+                                android:autoSizeMinTextSize="12sp"
+                                android:autoSizeMaxTextSize="100sp"
+                                android:autoSizeStepGranularity="2sp"
                                 android:textColor="#000000"
+                                android:textSize="18sp"
                                 android:text="ISBN"
-                                android:textAlignment="center"
-                                android:textSize="14sp" />
+                                android:textAlignment="center" />
                 </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -406,20 +427,28 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="15dp">
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="5dp"
                 app:cardUseCompatPadding="true"
-                android:padding="8dp">
+               >
             <TextView
                 android:layout_width="match_parent"
                 android:padding="12dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/description"
-               android:layout_marginTop="12dp"
+
                 android:textColor="@android:color/black"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeStepGranularity="2sp"
+
                 android:textSize="15sp"
                 android:lineSpacingMultiplier="1.5"
                 android:text="id= @+id/description"/>
@@ -433,7 +462,13 @@
        android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:text="Download"
-
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+       android:textSize="20sp"
+        android:textIsSelectable="false"
+        android:drawableTint="@android:color/white"
+        android:fontFamily="monospace"
+android:backgroundTint="#00CC44"
         android:background="@drawable/button"
         android:drawableEnd="@drawable/download_icon" />
 
